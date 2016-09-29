@@ -1,5 +1,5 @@
 # tubefilt
-This repo is for code related to construction of lossy dielectric filters for cryogenic applications. This type of filter, described by Wollack, Chuss, Rostem, and U-Yen at http://ntrs.nasa.gov/search.jsp?R=20140010491 (http://dx.doi.org/10.1063/1.4869038, PDF: http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20140010491.pdf), is commonly referred to as a metal powder filter. While multiple geometries are possible for this class of filter, this code focuses on the coaxial cylindrical type. 
+This repo is for code related to construction of lossy dielectric filters (low-pass filters) for cryogenic applications. This type of filter, described by Wollack, Chuss, Rostem, and U-Yen at http://ntrs.nasa.gov/search.jsp?R=20140010491 (http://dx.doi.org/10.1063/1.4869038, PDF: http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20140010491.pdf), is commonly referred to as a metal powder filter. While multiple geometries are possible for this class of filter, this code focuses on the coaxial cylindrical type. 
 
 What this code will do:
 - Calculate the outer diameter of the inner coaxial conductor, in inches and in nearest American Wire Gauge, given an outer coaxial conductor inner diameter, the relative dielectric constant of the material in the filter, and a target impedance to be matched.
