@@ -1,0 +1,454 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19591,        446]
+NotebookOptionsPosition[     18919,        420]
+NotebookOutlinePosition[     19262,        435]
+CellTagsIndexPosition[     19219,        432]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"ClearAll", "[", 
+  RowBox[{
+  "s", ",", "ID", ",", " ", "ohms", ",", "d", ",", "\[Epsilon]r", ",", " ", 
+   "sol", ",", " ", "dia", ",", " ", "OD", ",", " ", "eq"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ID", " ", "=", " ", ".244"}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"coax", " ", "outer", " ", "conductor", " ", "ID"}], ",", " ", 
+    RowBox[{
+     RowBox[{"inches", ".", " ", "symbol"}], " ", "D", " ", "is", " ", 
+     RowBox[{"protected", "."}]}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ohms", " ", "=", " ", "50."}], ";", " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "impedance", " ", "of", " ", "rest", " ", "of", " ", "microwave", " ", 
+     "circuit"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"s", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"ohms", "==", " ", 
+        RowBox[{
+         FractionBox["377", 
+          RowBox[{"2", "\[Pi]"}]], 
+         SuperscriptBox[
+          RowBox[{"(", 
+           FractionBox["1", "\[Epsilon]r"], ")"}], 
+          FractionBox["1", "2"]], 
+         RowBox[{"Log", "[", 
+          FractionBox["ID", "d"], "]"}]}]}], ",", "d"}], "]"}], "/.", 
+     RowBox[{"Rule", "\[Rule]", " ", "Equal"}]}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Solves", " ", 
+      RowBox[{"eq", ".", " ", 
+       RowBox[{"(", "1", ")"}]}], " ", "in", " ", 
+      RowBox[{"https", ":"}]}], "//", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"arxiv", ".", "org"}], "/", "pdf"}], "/", 
+       RowBox[{"1403.2909", ".", "pdf"}]}], " ", "by", " ", "Wollack"}]}], 
+    ",", " ", "Chuss", ",", " ", 
+    RowBox[{"et", " ", 
+     RowBox[{"al", ".", " ", "\[IndentingNewLine]", 
+      RowBox[{"DOI", ":", " ", 
+       RowBox[{"10.1063", "/", "1.4869038"}]}]}]}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"sol", " ", "=", " ", 
+    RowBox[{"Part", "[", 
+     RowBox[{"s", ",", "1", ",", "1", ",", "2"}], "]"}]}], ";", " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"pick", " ", "out", " ", "RHS", " ", "of", " ", "solution"}], " ",
+     "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Plot", "[", 
+    RowBox[{"sol", ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Epsilon]r", ",", "0", ",", "12"}], "}"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\[Epsilon]_r", ",", "OD"}], "}"}]}]}], "]"}]}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dia", "[", "\[Epsilon]r_", "]"}], ":=", "sol"}], ";", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"make", " ", "sol", " ", "into", " ", "a", " ", "function"}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"\[Epsilon]r", " ", "=", " ", "10.6"}], " ", ";", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Re", "[", "\[Epsilon]_r", "]"}], " ", "for", " ", "the", " ", 
+       "lossy", " ", "stycast"}], " ", "&"}], " ", "powder", " ", "or", " ", 
+     "Eccosorb", " ", "mixture"}], ",", " ", 
+    RowBox[{
+    "based", " ", "on", " ", "material", " ", "and", " ", "frequency", " ", 
+     "of", " ", "operation"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Eccosorb", " ", "machinable", " ", "stock", " ", "MR"}], "-", 
+     RowBox[{
+     "XXX", " ", "is", " ", "equivalent", " ", "to", " ", "castable", " ", 
+      "resin", " ", "CR"}], "-", 
+     RowBox[{"XXX", ":", "\[IndentingNewLine]", "http", ":"}]}], "//", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"www", ".", "eccosorb", ".", "com"}], "/", "Collateral"}], 
+       "/", "Documents"}], "/", "English"}], "-", 
+     RowBox[{"US", "/", "RFP"}], "-", "DS", "-", 
+     RowBox[{"MF", 
+      RowBox[{"%20092115", ".", "pdf"}]}]}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+  "Print", "[", "\"\<Inner conductor OD in inches should be\>\"", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"od", " ", "=", " ", 
+   RowBox[{"dia", "[", "\[Epsilon]r", "]"}]}], 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "find", " ", "OD", " ", "of", " ", "inner", " ", "conductor", " ", 
+    "needed", " ", "to", " ", 
+    RowBox[{"match", " ", "~", "50"}], 
+    RowBox[{"\[CapitalOmega]", "."}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eq", " ", "=", " ", 
+   RowBox[{"NSolve", "[", 
+    RowBox[{
+     RowBox[{"od", "==", 
+      RowBox[{".005", "*", 
+       SuperscriptBox["92", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"36", " ", "-", " ", "AWG"}], ")"}], "/", "39"}], 
+         ")"}]]}]}], ",", "AWG", ",", " ", "Reals"}], "]"}]}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"conver", " ", "OD", " ", "to", " ", "AWG", " ", "number"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Suggested American Wire Gauge diameter for \[Epsilon]_r = \>\"", ",", 
+   "\[Epsilon]r", ",", "\"\< is approximately\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"awgsugg", " ", "=", " ", 
+  RowBox[{"Round", "[", 
+   RowBox[{"Part", "[", 
+    RowBox[{"eq", ",", "1", ",", "1", ",", "2"}], "]"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"wiresugg", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"0.005", "*", 
+     SuperscriptBox["92", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"36", "-", "awgsugg"}], ")"}], "/", "39"}], ")"}]]}], "//", 
+    "N"}]}], ";", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "calc", " ", "diameter", " ", "based", " ", "on", " ", "suggested", " ", 
+    "AWG"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Z0calc", "=", " ", 
+   RowBox[{
+    FractionBox["377", 
+     RowBox[{"2", "\[Pi]"}]], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox["1", "\[Epsilon]r"], ")"}], 
+     FractionBox["1", "2"]], 
+    RowBox[{"Log", "[", 
+     FractionBox["ID", "wiresugg"], "]"}]}]}], ";", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "calc", " ", "impedance", " ", "based", " ", "on", " ", "AWG", " ", 
+    "diameter"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+  "Print", "[", 
+   "\"\<For this suggested gauge and given \[Epsilon]_r, impedance would be\>\
+\"", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"Z0calc", ",", "\"\<\[CapitalOmega]\>\""}], "]"}], 
+  "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.683041210069991*^9, 3.6830412795163484`*^9}, {
+   3.683041918633278*^9, 3.6830419843041787`*^9}, {3.683042037191704*^9, 
+   3.6830420423831544`*^9}, {3.6830420881262035`*^9, 
+   3.6830422248818455`*^9}, {3.683042255971014*^9, 3.683042289195595*^9}, {
+   3.6830423274088526`*^9, 3.6830423380669355`*^9}, {3.683042382751892*^9, 
+   3.6830424060140457`*^9}, {3.6830425280055933`*^9, 3.683042641670473*^9}, {
+   3.6830427136107035`*^9, 3.68304277409091*^9}, {3.683042950166855*^9, 
+   3.683042962148677*^9}, {3.6830430235619717`*^9, 3.683043407289279*^9}, {
+   3.683043440485507*^9, 3.6830435042381873`*^9}, {3.6830435391221304`*^9, 
+   3.683043544350596*^9}, 3.6830435953752427`*^9, {3.6830436305528455`*^9, 
+   3.68304365187423*^9}, {3.683043787427413*^9, 3.6830438369849396`*^9}, {
+   3.6830439218162627`*^9, 3.6830439621572*^9}, {3.683044017045245*^9, 
+   3.6830444132778597`*^9}, {3.683044451181732*^9, 3.6830448269907713`*^9}, {
+   3.683045266142212*^9, 3.683045356994824*^9}, {3.683046598800627*^9, 
+   3.6830466487442026`*^9}, {3.6833866485878367`*^9, 
+   3.6833867057536364`*^9}, {3.6833867513045645`*^9, 3.683386753459814*^9}, {
+   3.6833867971047497`*^9, 3.6833869086833773`*^9}, {3.6833869541742315`*^9, 
+   3.6833870015125217`*^9}, {3.6833871187076406`*^9, 3.683387147296264*^9}, {
+   3.6833871805520415`*^9, 3.683387368782589*^9}, {3.6841718463896217`*^9, 
+   3.684171872136814*^9}, {3.684172047944763*^9, 3.6841720875355263`*^9}, {
+   3.684172717786375*^9, 3.6841727181936693`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
+     1.], LineBox[CompressedData["
+1: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
+1LwGWPAv7jrn4w==
+      "]]}}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\[Epsilon]_r", TraditionalForm], 
+    FormBox["OD", TraditionalForm]},
+  AxesOrigin->{0, 0.01360564685435606},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->{317., Automatic},
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 12}, {0.01360564685435606, 0.13949330312770813`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.6830446406896906`*^9, 3.6830446484342623`*^9}, {
+   3.6830446802138076`*^9, 3.683044715478371*^9}, {3.6830447488897467`*^9, 
+   3.6830447654250574`*^9}, 3.6830448000096865`*^9, {3.6830452696025105`*^9, 
+   3.683045358783511*^9}, 3.683046795807431*^9, 3.683386527370926*^9, {
+   3.683386689741469*^9, 3.683386706206393*^9}, 3.6833867553044496`*^9, {
+   3.6833869973548884`*^9, 3.683387001858304*^9}, 3.683387156786703*^9, 
+   3.6833871987665386`*^9, {3.683387231195137*^9, 3.683387287375859*^9}, {
+   3.6833873531451564`*^9, 3.683387369687415*^9}, 3.684171601600374*^9, 
+   3.6841718015151095`*^9, 3.6841718470978394`*^9, 3.6841720598873434`*^9, 
+   3.684172095254222*^9}],
+
+Cell[BoxData["\<\"Inner conductor OD in inches should be\"\>"], "Print",
+ CellChangeTimes->{{3.6830446406981955`*^9, 3.6830446484432673`*^9}, {
+   3.683044680222813*^9, 3.6830447154888773`*^9}, {3.683044748895251*^9, 
+   3.6830447654315634`*^9}, 3.683044800015691*^9, {3.683045269605013*^9, 
+   3.683045358790516*^9}, 3.683046795818437*^9, 3.683386527375929*^9, {
+   3.6833866897464714`*^9, 3.683386706210395*^9}, 3.683386755309453*^9, {
+   3.6833869973608932`*^9, 3.6833870018633094`*^9}, 3.6833871567927065`*^9, 
+   3.683387198773543*^9, {3.6833872312011395`*^9, 3.6833872873808627`*^9}, {
+   3.683387353151161*^9, 3.683387369692417*^9}, 3.6841716016062384`*^9, 
+   3.6841718015199966`*^9, 3.6841718471017494`*^9, 3.68417205992632*^9, 
+   3.6841720952582283`*^9}],
+
+Cell[BoxData["0.016185169772425796`"], "Output",
+ CellChangeTimes->{{3.6830446406896906`*^9, 3.6830446484342623`*^9}, {
+   3.6830446802138076`*^9, 3.683044715478371*^9}, {3.6830447488897467`*^9, 
+   3.6830447654250574`*^9}, 3.6830448000096865`*^9, {3.6830452696025105`*^9, 
+   3.683045358783511*^9}, 3.683046795807431*^9, 3.683386527370926*^9, {
+   3.683386689741469*^9, 3.683386706206393*^9}, 3.6833867553044496`*^9, {
+   3.6833869973548884`*^9, 3.683387001858304*^9}, 3.683387156786703*^9, 
+   3.6833871987665386`*^9, {3.683387231195137*^9, 3.683387287375859*^9}, {
+   3.6833873531451564`*^9, 3.683387369687415*^9}, 3.684171601600374*^9, 
+   3.6841718015151095`*^9, 3.6841718470978394`*^9, 3.6841720598873434`*^9, 
+   3.684172095259205*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"AWG", "\[Rule]", "25.86869015871716`"}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6830446406896906`*^9, 3.6830446484342623`*^9}, {
+   3.6830446802138076`*^9, 3.683044715478371*^9}, {3.6830447488897467`*^9, 
+   3.6830447654250574`*^9}, 3.6830448000096865`*^9, {3.6830452696025105`*^9, 
+   3.683045358783511*^9}, 3.683046795807431*^9, 3.683386527370926*^9, {
+   3.683386689741469*^9, 3.683386706206393*^9}, 3.6833867553044496`*^9, {
+   3.6833869973548884`*^9, 3.683387001858304*^9}, 3.683387156786703*^9, 
+   3.6833871987665386`*^9, {3.683387231195137*^9, 3.683387287375859*^9}, {
+   3.6833873531451564`*^9, 3.683387369687415*^9}, 3.684171601600374*^9, 
+   3.6841718015151095`*^9, 3.6841718470978394`*^9, 3.6841720598873434`*^9, 
+   3.68417209526116*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Suggested American Wire Gauge diameter for \[Epsilon]_r = \
+\"\>", "\[InvisibleSpace]", "10.6`", 
+   "\[InvisibleSpace]", "\<\" is approximately\"\>"}],
+  SequenceForm[
+  "Suggested American Wire Gauge diameter for \[Epsilon]_r = ", 10.6, 
+   " is approximately"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.6830446406981955`*^9, 3.6830446484432673`*^9}, {
+   3.683044680222813*^9, 3.6830447154888773`*^9}, {3.683044748895251*^9, 
+   3.6830447654315634`*^9}, 3.683044800015691*^9, {3.683045269605013*^9, 
+   3.683045358790516*^9}, 3.683046795818437*^9, 3.683386527375929*^9, {
+   3.6833866897464714`*^9, 3.683386706210395*^9}, 3.683386755309453*^9, {
+   3.6833869973608932`*^9, 3.6833870018633094`*^9}, 3.6833871567927065`*^9, 
+   3.683387198773543*^9, {3.6833872312011395`*^9, 3.6833872873808627`*^9}, {
+   3.683387353151161*^9, 3.683387369692417*^9}, 3.6841716016062384`*^9, 
+   3.6841718015199966`*^9, 3.6841718471017494`*^9, 3.68417205992632*^9, 
+   3.6841720952621374`*^9}],
+
+Cell[BoxData["26"], "Output",
+ CellChangeTimes->{{3.6830446406896906`*^9, 3.6830446484342623`*^9}, {
+   3.6830446802138076`*^9, 3.683044715478371*^9}, {3.6830447488897467`*^9, 
+   3.6830447654250574`*^9}, 3.6830448000096865`*^9, {3.6830452696025105`*^9, 
+   3.683045358783511*^9}, 3.683046795807431*^9, 3.683386527370926*^9, {
+   3.683386689741469*^9, 3.683386706206393*^9}, 3.6833867553044496`*^9, {
+   3.6833869973548884`*^9, 3.683387001858304*^9}, 3.683387156786703*^9, 
+   3.6833871987665386`*^9, {3.683387231195137*^9, 3.683387287375859*^9}, {
+   3.6833873531451564`*^9, 3.683387369687415*^9}, 3.684171601600374*^9, 
+   3.6841718015151095`*^9, 3.6841718470978394`*^9, 3.6841720598873434`*^9, 
+   3.684172095263115*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"For this suggested gauge and given \[Epsilon]_r, impedance \
+would be\"\>"], "Print",
+ CellChangeTimes->{{3.6830446406981955`*^9, 3.6830446484432673`*^9}, {
+   3.683044680222813*^9, 3.6830447154888773`*^9}, {3.683044748895251*^9, 
+   3.6830447654315634`*^9}, 3.683044800015691*^9, {3.683045269605013*^9, 
+   3.683045358790516*^9}, 3.683046795818437*^9, 3.683386527375929*^9, {
+   3.6833866897464714`*^9, 3.683386706210395*^9}, 3.683386755309453*^9, {
+   3.6833869973608932`*^9, 3.6833870018633094`*^9}, 3.6833871567927065`*^9, 
+   3.683387198773543*^9, {3.6833872312011395`*^9, 3.6833872873808627`*^9}, {
+   3.683387353151161*^9, 3.683387369692417*^9}, 3.6841716016062384`*^9, 
+   3.6841718015199966`*^9, 3.6841718471017494`*^9, 3.68417205992632*^9, 
+   3.6841720952640924`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+  "50.28057661473011`", "\[InvisibleSpace]", "\<\"\[CapitalOmega]\"\>"}],
+  SequenceForm[50.28057661473011, "\[CapitalOmega]"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.6830446406981955`*^9, 3.6830446484432673`*^9}, {
+   3.683044680222813*^9, 3.6830447154888773`*^9}, {3.683044748895251*^9, 
+   3.6830447654315634`*^9}, 3.683044800015691*^9, {3.683045269605013*^9, 
+   3.683045358790516*^9}, 3.683046795818437*^9, 3.683386527375929*^9, {
+   3.6833866897464714`*^9, 3.683386706210395*^9}, 3.683386755309453*^9, {
+   3.6833869973608932`*^9, 3.6833870018633094`*^9}, 3.6833871567927065`*^9, 
+   3.683387198773543*^9, {3.6833872312011395`*^9, 3.6833872873808627`*^9}, {
+   3.683387353151161*^9, 3.683387369692417*^9}, 3.6841716016062384`*^9, 
+   3.6841718015199966`*^9, 3.6841718471017494`*^9, 3.68417205992632*^9, 
+   3.6841720952650704`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.683042767549101*^9}]
+},
+WindowSize->{759, 601},
+WindowMargins->{{Automatic, 295}, {24, Automatic}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 7992, 201, 564, "Input"],
+Cell[8575, 225, 4411, 85, 213, "Output"],
+Cell[12989, 312, 765, 10, 22, "Print"],
+Cell[13757, 324, 742, 10, 30, "Output"],
+Cell[14502, 336, 815, 13, 30, "Output"],
+Cell[15320, 351, 1036, 18, 22, "Print"],
+Cell[16359, 371, 723, 10, 30, "Output"],
+Cell[CellGroupData[{
+Cell[17107, 385, 796, 11, 22, "Print"],
+Cell[17906, 398, 895, 15, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[18828, 417, 87, 1, 50, "Input"]
+}
+]
+*)
+
