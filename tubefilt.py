@@ -14,7 +14,7 @@ import math
 
 def tubefilt(i_d, e_r, z_o):
     '''
-    Units are decimal inches, unless otherwise specified
+    Length units are decimal inches, unless otherwise specified
     377 Ohms is the impedance of free space
     
     Inputs:
@@ -45,7 +45,7 @@ def tubefilt(i_d, e_r, z_o):
     zo_awg = []
     delta_z = []
     for k, val in enumerate(awg):
-        # diameter in inches of an awg
+        # diameter in inches from an awg
         sugg = 0.005 * 92 ** ((36 - val) / 39) 
         zo_awg.append((377. / 2. / math.pi) * math.sqrt(1. / e_r[k]) * 
                       math.log(i_d / sugg ))
