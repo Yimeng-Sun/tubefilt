@@ -20,10 +20,10 @@ def tubefilt(i_d, e_r, z_o):
     Inputs:
         i_d: float, the inner diameter of the outer conductor in a coax
             transmission line (e.g. copper pipe)
-        e_r: list of floats, the real part of dielectric constants of material 
-            as a function of frequency.
+        e_r: list of floats or ints, the real part of dielectric constants of material, 
+            possibly varying as a function of frequency.
         z_o: float, the impedance of the circuit passing signal to the filter.
-            this will be matched.
+            matching to this impedance will be attempted.
     Returns:
         o_d: list of floats, the outer diameter of the inner conductor for each
             e_r
