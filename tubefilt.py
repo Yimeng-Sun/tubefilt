@@ -6,7 +6,7 @@ low-pass filters with lossy loaded dielectrics.
 
 Created on Sat Oct 29 02:50:18 2016
 
-@author: Evan
+@author: Evan Mayer, evanmayer@uchicago.edu, contactevanmayer@gmail.com
 """
 
 import math
