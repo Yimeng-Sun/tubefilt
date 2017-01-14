@@ -11,5 +11,7 @@ What you will need to use this code:
 - Inner diameter of outer conductor (e.g. the ID of a copper tube)
 - Dielectric material of known relative dielectric constant, and knowledge of the relative dielectric constant's dependence on frequency, or at least a value of relative dielectric constant for your frequency of interest. Documentation on Emerson & Cuming "Eccosorb" is available at http://www.eccosorb.com/. Custom mixtures of metal and powder, or metal and Stycast 2850FT are also common.
 
+Because Mathematica tends not to play well with git, the .nb is copied as plain text. Just paste into an empty .nb. The calculator is meant to interactive, so Mathematica or an iPython notebook is natural.
+
 Impedance matched absorptive thermal blocking filters.
 Wollack, E. J. and Chuss, D. T. and Rostem, K. and U-Yen, K., Review of Scientific Instruments, 85, 034702 (2014), DOI:http://dx.doi.org/10.1063/1.4869038.
